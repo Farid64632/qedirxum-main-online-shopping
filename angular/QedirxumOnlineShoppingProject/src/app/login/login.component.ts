@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { API_URL } from '../constant';
 import { User } from '../models/user';
+import { LoginService } from '../service/login.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { User } from '../models/user';
 })
 export class LoginComponent implements OnInit {
   user:User=new User();
-  constructor(private http:HttpClient,private router:Router) {}
+  constructor(private http:HttpClient,private router:Router,private loginS:LoginService) {}
 
   ngOnInit(): void {
 
@@ -31,11 +32,18 @@ headers:new HttpHeaders(
       //  alert('ugurlu giris')
       localStorage.setItem('token',token)
       localStorage.setItem('username',this.user.username)
-          },
+      this.loginS.userLogin.emit(true);
+      this.loginS.userRoles.emit(resp);
+      console.log(resp)
+      this.router.navigate(['home']);
+
+    },
       error =>{
         alert('ugursuz gris')
       }
     );
   }
-
+  onSignUp(){
+    this.router.navigate(['sign-in']);
+      }
 }

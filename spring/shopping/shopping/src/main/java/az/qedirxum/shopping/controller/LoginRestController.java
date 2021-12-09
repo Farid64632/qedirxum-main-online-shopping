@@ -11,22 +11,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.web.bind.annotation.RestController;
 
-
-
+import az.qedirxum.shopping.dao.userDAO;
+import az.qedirxum.shopping.model.UserModel;
 @RestController
 
 @CrossOrigin(origins = "*")
 public class LoginRestController {
- 
+  @Autowired
+    private userDAO userDao;
  
 
 
     @GetMapping(path="/login")
-        public void login(){ 
+        public  List<String> login(){ 
 
-           SecurityContextHolder.getContext().getAuthentication().getName();
-         
+          String username=SecurityContextHolder.getContext().getAuthentication().getName();
+            return userDao.getUserRoles(username);    
          }
     
          
+         @PostMapping(path="/signup")
+         public void signup(@RequestBody UserModel user){ 
+ userDao.createUser(user);
+             
+          }
 }

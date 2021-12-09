@@ -1,15 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from '../service/login.service';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
+roles:string[]=[];
+userLoggedin:boolean=false;
+  constructor(private loginSerice:LoginService) { }
 
   ngOnInit(): void {
+this.loginSerice.userLogin.subscribe(
+resp=>{
+
+  this.userLoggedin=resp;
+}
+
+);
+
+this.loginSerice.userRoles.subscribe(
+  resp=>{
+  
+    this.roles=resp;
+  }
+  
+  );
+
   }
 
 }
