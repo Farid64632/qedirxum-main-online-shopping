@@ -32,7 +32,7 @@ public class LoginRestController {
          
          @PostMapping(path="/signup")
          public void signup(@RequestBody UserModel user){ 
- userDao.createUser(user);
+ userDao.createUser(user,"ROLE_USER");
              
           }
 }

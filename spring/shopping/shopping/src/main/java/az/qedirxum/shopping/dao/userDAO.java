@@ -43,7 +43,7 @@ c.close();
 
         return roles;
  }
- public void createUser(UserModel user){
+ public void createUser(UserModel user,String authority){
 
   
     try {
@@ -55,7 +55,7 @@ st.setString(2, "{bcrypt}"+passwordEncoder.encode(user.getPassword()));
 st.setInt(3, 1);
 st.executeUpdate();
 st1.setString(1, user.getUsername());
-st1.setString(2, "ROLE_ADMIN");
+st1.setString(2, authority);
 st.close();
 st1.executeUpdate();
 c.close();
