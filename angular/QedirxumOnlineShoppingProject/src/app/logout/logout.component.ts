@@ -13,7 +13,9 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem('token');
-    this.loginS.userLogin.emit(false);
+    localStorage.setItem('userLogin','false');
+      localStorage.setItem('userRoles', '');
+   this.loginS.userLogin.emit(false);
     this.loginS.userRoles.emit([]);
   }
 

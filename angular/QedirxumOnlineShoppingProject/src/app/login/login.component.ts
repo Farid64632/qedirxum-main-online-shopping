@@ -30,8 +30,10 @@ headers:new HttpHeaders(
     }).subscribe(
       resp =>{
       //  alert('ugurlu giris')
-      localStorage.setItem('token',token)
-      localStorage.setItem('username',this.user.username)
+      localStorage.setItem('token',token);
+      localStorage.setItem('username',this.user.username);
+      localStorage.setItem('userLogin','true');
+      localStorage.setItem('userRoles', resp.toString());
       this.loginS.userLogin.emit(true);
       this.loginS.userRoles.emit(resp);
       console.log(resp)
