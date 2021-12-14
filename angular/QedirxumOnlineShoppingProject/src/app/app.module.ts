@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { ManagerCreateComponent } from './manager-create/manager-create.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
     MenuComponent,
     HomePageComponent,
     LogoutComponent,
-    SignInComponent
+    SignInComponent,
+    AdminPanelComponent,
+    ManagerCreateComponent
   ],
   imports: [
     BrowserModule,
