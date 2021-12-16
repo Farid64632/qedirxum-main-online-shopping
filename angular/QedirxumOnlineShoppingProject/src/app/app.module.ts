@@ -13,6 +13,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ManagerCreateComponent } from './manager-create/manager-create.component';
+import { ManagerTableComponent } from './manager-table/manager-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { ManagerCreateComponent } from './manager-create/manager-create.componen
     LogoutComponent,
     SignInComponent,
     AdminPanelComponent,
-    ManagerCreateComponent
+    ManagerCreateComponent,
+    ManagerTableComponent
   ],
   imports: [
     BrowserModule,
