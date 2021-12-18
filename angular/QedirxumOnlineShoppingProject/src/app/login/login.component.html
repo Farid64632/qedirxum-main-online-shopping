@@ -1,4 +1,4 @@
-  <div class="container">
+  <!-- <div class="container">
 <form class="form-input"  (ngSubmit)="onLogin()">
 <div class="form-group">
 <label for="username">Ad:</label>
@@ -22,60 +22,65 @@ name="password"
 </div>
 <button type="submit" class="btn btn-primary">Yadda saxla</button>
 <button   (click)="onSignUp()">Hesab Yarat</button>
-</form></div> 
+</form></div>  -->
 
-                            <!-- <br><br>
-                             <div class="container">
-                                <header>Login</header>
-                                <form (ngSubmit)="onLogin()">
-                                   <div class="input-field">
-                                    <label for="username">Ad:</label>
-                                    <input
-                                    required
-                                      type="text"
-                                      class="form-control"
-                                      id="username"
-                                      name="username"
-                                      [(ngModel)]="user.username"      
-                                    />
-                                      
-                                   </div>
-                                   <div class="input-field">
-                                      <span class="show">SHOW</span>
-                                      <label for="password">Password:</label>
-                                      <input
-                                        class="pswrd"
-                                        type="password"
-                                        required
-                                        class="form-control"
-                                        id="password"
-                                        name="password"
-                                        [(ngModel)]="user.password"
-                                      />                                   </div>
-                                   <div class="button">
-                                      <div class="inner"></div>
-                                      <button>Daxil Ol</button>
-                                   </div>
-                                </form>
-                              
-                                <div class="signup">
-                                   Hesabin Yoxdur ? <a href="#"  (click)="onSignUp()">Qeydiyyatdan Kec</a>
-                                </div>
-                             </div>
-                             <script>
-                                var input = document.querySelector('.pswrd');
-                                var show = document.querySelector('.show');
-                                show.addEventListener('click', active);
-                                function active(){
-                                  if(input.type === "password"){
-                                    input.type = "text";
-                                    show.style.color = "#1DA1F2";
-                                    show.textContent = "HIDE";
-                                  }else{
-                                    input.type = "password";
-                                    show.textContent = "SHOW";
-                                    show.style.color = "#111";
-                                  }
-                                }
-                             </script>
-                          -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+<div class="wrapper">
+  <div class="title">
+    Giriş Qədirxum
+  </div>
+  <form action="#"   (ngSubmit)="onLogin()">
+     <div class="field">
+        <input type="text" 
+        type="text"
+        class="form-control"
+        id="username"
+        name="username"
+        [(ngModel)]="user.username"
+        required>
+        <label>Istifadeci Adiniz</label>
+     </div>
+     <div class="field">
+        <input type="password" 
+        type="text"
+       class="form-control"
+       id="password"
+       name="password"
+      [(ngModel)]="user.password"
+        required>
+        <label>Sifreniz</label>
+     </div>
+
+     <div class="field">
+        <input type="submit"  (click)="onSignUp()" value="Login">
+     </div>
+     <div class="signup-link">
+        Hesabiniz Yoxdur <a href="#">Hesab Yarat</a>
+     </div>
+  </form>
+</div>
