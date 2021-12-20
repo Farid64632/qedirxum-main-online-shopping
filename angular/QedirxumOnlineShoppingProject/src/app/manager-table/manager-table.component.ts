@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ManagerCreateComponent } from '../manager-create/manager-create.component';
 
 @Component({
   selector: 'app-manager-table',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagerTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog:MatDialog) { }
 
   ngOnInit(): void {
   }
-
+  openDialog(){
+    this.dialog.open(ManagerCreateComponent);
+  }
 }

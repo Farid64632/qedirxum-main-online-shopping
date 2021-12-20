@@ -14,6 +14,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ManagerCreateComponent } from './manager-create/manager-create.component';
 import { ManagerTableComponent } from './manager-table/manager-table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DemoMaterialModule } from './material-module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +27,15 @@ import { ManagerTableComponent } from './manager-table/manager-table.component';
     SignInComponent,
     AdminPanelComponent,
     ManagerCreateComponent,
-    ManagerTableComponent
+    ManagerTableComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
-    ,FormsModule
+    ,FormsModule, BrowserAnimationsModule,
+    DemoMaterialModule
   ],
   providers: [{
 

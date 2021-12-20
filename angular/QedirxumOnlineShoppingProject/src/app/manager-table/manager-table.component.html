@@ -1,1 +1,29 @@
-<p>manager-table works!</p>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+            <li><a ><i class="fas fa-home"></i>Anbar</a></li>
+            <li><a  routerLink="manager-t" routerLinkActive="active"><i class="fas fa-user"></i>Manager İdare</a></li>
+            <li><a ><i class="fas fa-address-card"></i>Gelir ve Xerc</a></li>
+            </ul> 
+        
+    </div>
+    <div class="main_content">
+        <div class="info">
+            <button mat-button class="btn btn-primary" (click)="openDialog()">Yeni Manager</button>
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Password</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>    </div>
+    </div>
+</div>
+
