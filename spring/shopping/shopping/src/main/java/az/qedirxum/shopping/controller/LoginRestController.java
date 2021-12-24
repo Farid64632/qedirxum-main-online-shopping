@@ -32,7 +32,12 @@ public class LoginRestController {
          
          @PostMapping(path="/signup")
          public void signup(@RequestBody UserModel user){ 
- userDao.createUser(user,"ROLE_USER");
+ userDao.createUser(user,"ROLE_MANAGER");
              
+          }
+         
+         @GetMapping(path="/get-managers")
+         public List<UserModel> getManagers(){ 
+             return userDao.getManagers();
           }
 }
