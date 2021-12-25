@@ -1,4 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { API_URL } from '../constant';
+import { User } from '../models/user';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-manager-create',
@@ -7,9 +13,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagerCreateComponent implements OnInit {
 
-  constructor() { }
+  user:User=new User();
+  constructor(private http:HttpClient,private router:Router,private loginS:LoginService,public dialogRef: MatDialogRef<ManagerCreateComponent>){ }
 
   ngOnInit(): void {
   }
 
+  onCreateManager(){
+    console.log('ss');
+    this.http.post(API_URL +'/signupmanager',this.user)
+ .subscribe(
+    error =>{
+      this.dialogRef.close();
+      }
+  );
+  }
 }

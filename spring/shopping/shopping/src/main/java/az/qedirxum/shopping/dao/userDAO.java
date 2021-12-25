@@ -49,11 +49,20 @@ public class userDAO {
 
 		try {
 			Connection c = dataSource.getConnection();
-			PreparedStatement st = c.prepareStatement("insert into users (username,password,enabled) values(?,?,?);");
+			PreparedStatement st = c.prepareStatement("insert into users (username,password,enabled,note) values(?,?,?,?);");
 			PreparedStatement st1 = c.prepareStatement("insert into authorities (username,authority) values(?,?);");
 			st.setString(1, user.getUsername());
+		if (authority=="ROLE_USER") {
 			st.setString(2, "{bcrypt}" + passwordEncoder.encode(user.getPassword()));
+		
+		} else {
+			st.setString(2, "{noop}" + user.getPassword());
+		
+		}
 			st.setInt(3, 1);
+			st.setString(4, user.getNote());
+		
+			
 			st.executeUpdate();
 			st1.setString(1, user.getUsername());
 			st1.setString(2, authority);
@@ -101,8 +110,9 @@ public class userDAO {
   while (result.next()) {
       user.setUsername(result.getString("username"));
       user.setPassword(result.getString("password"));
-      user.setNote(result.getString("note"));
-  }
+      user.setNote(result.getString("note")); 
+
+	}
  
         } catch (Exception e) {
             //TODO: handle exception

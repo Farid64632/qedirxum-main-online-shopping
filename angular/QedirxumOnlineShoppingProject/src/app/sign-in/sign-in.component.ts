@@ -24,7 +24,7 @@ export class SignInComponent implements OnInit {
       this.http.post(API_URL +'/signup',this.user)
    .subscribe(
       error =>{
-      
+     
       }
     );
 

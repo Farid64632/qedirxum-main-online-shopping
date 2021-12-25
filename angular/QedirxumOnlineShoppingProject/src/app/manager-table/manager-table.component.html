@@ -15,7 +15,7 @@
             <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>ID</th>
+                  
                     <th>User</th>
                     <th>Sifre</th>
                     <th>Qeyd</th>
@@ -23,7 +23,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  
+                  <tr *ngFor="let user of users">
+                   <td>{{user.username}}</td>
+                   <td>{{user.password}}</td>
+                   <td>{{user.note}}</td>
+                  </tr>
                 </tbody>
               </table>    </div>
     </div>

@@ -1,6 +1,6 @@
 <div style="width: 600px;">
 <div class="container" style="width: 80%;margin-left: 10%;">
-    <form class="form-input"   >
+    <form class="form-input"    (ngSubmit)="onCreateManager()">
         <div class="form-group">
           <label for="username">Ad:</label>
           <input
@@ -8,7 +8,7 @@
             class="form-control"
             id="username"
             name="username"
-      
+      [(ngModel)]="user.username"
           />
         </div>
         <br>
@@ -19,17 +19,18 @@
             class="form-control"
             id="password"
             name="password"
-       
+            [(ngModel)]="user.password"
+   
           />
         </div>    <br>
         <div class="form-group">
-          <label for="password">Qeyd:</label>
+          <label for="note">Qeyd:</label>
           <input
             type="password"
             class="form-control"
-            id="password"
-            name="password"
-       
+            id="note"
+            name="note"
+       [(ngModel)]="user.note"
           />
         </div>
      <!--    <label for="cars">Choose a car:</label>
