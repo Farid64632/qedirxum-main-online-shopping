@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { HttpInterSectorService } from './service/http-inter-sector.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -16,11 +16,11 @@ import { ManagerCreateComponent } from './manager-create/manager-create.componen
 import { ManagerTableComponent } from './manager-table/manager-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './material-module';
-import { ManagerComponent } from './manager/manager.component';
 import { FoodCreateComponent } from './food-create/food-create.component';
 import { FoodTableComponent } from './food-table/food-table.component';
 import { InqridientTableComponent } from './inqridient-table/inqridient-table.component';
 import { InqridientCreateComponent } from './inqridient-create/inqridient-create.component';
+
 
 @NgModule({
   declarations: [
@@ -33,18 +33,17 @@ import { InqridientCreateComponent } from './inqridient-create/inqridient-create
     AdminPanelComponent,
     ManagerCreateComponent,
     ManagerTableComponent,
-    ManagerComponent,
     FoodCreateComponent,
     FoodTableComponent,
     InqridientTableComponent,
     InqridientCreateComponent,
-
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
-    ,FormsModule, BrowserAnimationsModule,
+    ,FormsModule, BrowserAnimationsModule,ReactiveFormsModule,
     DemoMaterialModule
   ],
   providers: [{

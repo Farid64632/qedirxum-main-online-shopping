@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { LoginService } from '../service/login.service';
 
@@ -10,7 +11,7 @@ import { LoginService } from '../service/login.service';
 export class MenuComponent implements OnInit {
 roles:string[]=[];
 userLoggedin:boolean=false;
-  constructor(private loginSerice:LoginService) { }
+  constructor(private loginSerice:LoginService,private router:Router) { }
 
   ngOnInit(): void {
 this.loginSerice.userLogin.subscribe(
@@ -31,4 +32,7 @@ this.loginSerice.userRoles.subscribe(
 
   }
 
+  toManager(){
+    this.router.navigate(['manager-t']);
+  }
 }
