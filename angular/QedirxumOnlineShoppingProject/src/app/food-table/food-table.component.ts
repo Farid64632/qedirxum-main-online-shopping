@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { FoodCreateComponent } from '../food-create/food-create.component';
 
 @Component({
   selector: 'app-food-table',
@@ -7,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog:MatDialog) { }
+  openDialog(){
+    this.dialog.open(FoodCreateComponent);
 
+  }
   ngOnInit(): void {
   }
 

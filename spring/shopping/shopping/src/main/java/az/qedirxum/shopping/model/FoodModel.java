@@ -37,5 +37,10 @@ public class FoodModel {
 	@NotEmpty(message="Boş qoymaq olmaz!")
 	private String foodDescription;
 	
+
+	@Size(min=2,message="minimum 2 simvol yazmaq lazımdır")
+	@Size(max=200,message="maximum 200 simvol yazmaq lazımdır")
+	@NotEmpty(message="Boş qoymaq olmaz!")
+	private String foodCategory;
 	private String image;
 }
