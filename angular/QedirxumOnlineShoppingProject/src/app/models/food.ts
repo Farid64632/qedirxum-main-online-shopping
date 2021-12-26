@@ -5,5 +5,5 @@ export class Food {
     public description: string = '';
     public miqdar: string = '';
       public image: string = '';
-  
+      public kateqoriya: string = '';
   }
