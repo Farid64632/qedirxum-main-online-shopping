@@ -16,6 +16,11 @@ import { ManagerCreateComponent } from './manager-create/manager-create.componen
 import { ManagerTableComponent } from './manager-table/manager-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './material-module';
+import { ManagerComponent } from './manager/manager.component';
+import { FoodCreateComponent } from './food-create/food-create.component';
+import { FoodTableComponent } from './food-table/food-table.component';
+import { InqridientTableComponent } from './inqridient-table/inqridient-table.component';
+import { InqridientCreateComponent } from './inqridient-create/inqridient-create.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,11 @@ import { DemoMaterialModule } from './material-module';
     AdminPanelComponent,
     ManagerCreateComponent,
     ManagerTableComponent,
+    ManagerComponent,
+    FoodCreateComponent,
+    FoodTableComponent,
+    InqridientTableComponent,
+    InqridientCreateComponent,
 
   ],
   imports: [
