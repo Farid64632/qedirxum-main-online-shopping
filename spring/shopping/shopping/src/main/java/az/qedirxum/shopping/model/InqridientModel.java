@@ -63,11 +63,7 @@ public class InqridientModel {
 		this.inqridientMiqdar = inqridientMiqdar;
 	}
 
-	@Override
-	public String toString() {
-		return "InqridientModel [id=" + id + ", inqridientMiqdar=" + inqridientMiqdar + ", inqridientName="
-				+ inqridientName + ", inqridientPrice=" + inqridientPrice + "]";
-	}
+
 
 	
 }
