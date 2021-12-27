@@ -12,35 +12,58 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class FoodModel {
+public class Inqridient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
 	
 	@Size(min=2,message="minimum 2 simvol yazmaq lazımdır")
 	@Size(max=30,message="maximum 30 simvol yazmaq lazımdır")
 	@NotEmpty(message="Boş qoymaq olmaz!")
 	@Column(columnDefinition="VARCHAR(30)")
-	private String foodName;
+	private String inqridientName;
 	
 	@NotNull(message="boş qoymaq olmaz")
 	@Min(value=0,message="minimum 0 yazmaq olar")
 	@Max(value=100,message="maximum 100 yazmaq olar")
-	private Double foodPrice;
-	
+	private Double inqridientPrice;
+
 	@NotNull(message="boş qoymaq olmaz")
-	private Integer foodMiqdar;
-	
-	@Size(min=2,message="minimum 2 simvol yazmaq lazımdır")
-	@Size(max=200,message="maximum 200 simvol yazmaq lazımdır")
-	@NotEmpty(message="Boş qoymaq olmaz!")
-	private String foodDescription;
+	private Integer inqridientMiqdar;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getInqridientName() {
+		return inqridientName;
+	}
+
+	public void setInqridientName(String inqridientName) {
+		this.inqridientName = inqridientName;
+	}
+
+	public Double getInqridientPrice() {
+		return inqridientPrice;
+	}
+
+	public void setInqridientPrice(Double inqridientPrice) {
+		this.inqridientPrice = inqridientPrice;
+	}
+
+	public Integer getInqridientMiqdar() {
+		return inqridientMiqdar;
+	}
+
+	public void setInqridientMiqdar(Integer inqridientMiqdar) {
+		this.inqridientMiqdar = inqridientMiqdar;
+	}
+
 	
 
-	@Size(min=2,message="minimum 2 simvol yazmaq lazımdır")
-	@Size(max=200,message="maximum 200 simvol yazmaq lazımdır")
-	@NotEmpty(message="Boş qoymaq olmaz!")
-	private String foodCategory;
-	private String image;
+	
 }

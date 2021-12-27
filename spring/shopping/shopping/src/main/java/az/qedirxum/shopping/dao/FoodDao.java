@@ -3,8 +3,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import az.qedirxum.shopping.model.FoodModel;
+import az.qedirxum.shopping.model.Food;
 
-public interface FoodDao extends JpaRepository<FoodModel,Integer> {
-public List<FoodModel>findAll();
+public interface FoodDao extends JpaRepository<Food,Integer> {
+
 }

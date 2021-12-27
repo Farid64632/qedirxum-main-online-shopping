@@ -19,28 +19,28 @@ import org.springframework.web.multipart.MultipartFile;
 
 import az.qedirxum.shopping.dao.InqridientDao;
 import az.qedirxum.shopping.error.ErrorValidation;
-import az.qedirxum.shopping.model.InqridientModel;
+import az.qedirxum.shopping.model.Inqridient;
 
 @RestController
-@RequestMapping(path="/rest/inqridients")
+@RequestMapping(path="/inqridients")
 public class InqridientRestController {
 @Autowired
 private InqridientDao inqridientDao;
 
 
 @GetMapping
-public List<InqridientModel>findAll(){
+public List<Inqridient>findAll(){
 	return inqridientDao.findAll();
 }
 @GetMapping(path="/{id}")
-public InqridientModel findById(@PathVariable(name="id")Integer id){
+public Inqridient findById(@PathVariable(name="id")Integer id){
 return inqridientDao.findById(id).get();
 }
 
 
 @PostMapping
-	public InqridientModel add(@Valid @RequestBody InqridientModel inqridientModel,BindingResult result){
-		InqridientModel inqridientModelSaved=null;
+	public Inqridient add(@Valid @RequestBody Inqridient inqridientModel,BindingResult result){
+		Inqridient inqridientModelSaved=null;
 		if (result.hasErrors()) {
 			throw new ErrorValidation(result);
 
