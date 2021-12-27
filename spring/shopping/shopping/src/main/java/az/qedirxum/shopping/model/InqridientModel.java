@@ -30,5 +30,57 @@ public class InqridientModel {
 
 	@NotNull(message="boş qoymaq olmaz")
 	private Integer inqridientMiqdar;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getInqridientName() {
+		return inqridientName;
+	}
+
+	public void setInqridientName(String inqridientName) {
+		this.inqridientName = inqridientName;
+	}
+
+	public Double getInqridientPrice() {
+		return inqridientPrice;
+	}
+
+	public void setInqridientPrice(Double inqridientPrice) {
+		this.inqridientPrice = inqridientPrice;
+	}
+
+	public Integer getInqridientMiqdar() {
+		return inqridientMiqdar;
+	}
+
+	public void setInqridientMiqdar(Integer inqridientMiqdar) {
+		this.inqridientMiqdar = inqridientMiqdar;
+	}
+
+	@Override
+	public String toString() {
+		return "InqridientModel [id=" + id + ", inqridientMiqdar=" + inqridientMiqdar + ", inqridientName="
+				+ inqridientName + ", inqridientPrice=" + inqridientPrice + "]";
+	}
+
+	public InqridientModel(Integer id,
+			@Size(min = 2, message = "minimum 2 simvol yazmaq lazımdır") @Size(max = 30, message = "maximum 30 simvol yazmaq lazımdır") @NotEmpty(message = "Boş qoymaq olmaz!") String inqridientName,
+			@NotNull(message = "boş qoymaq olmaz") @Min(value = 0, message = "minimum 0 yazmaq olar") @Max(value = 100, message = "maximum 100 yazmaq olar") Double inqridientPrice,
+			@NotNull(message = "boş qoymaq olmaz") Integer inqridientMiqdar) {
+		this.id = id;
+		this.inqridientName = inqridientName;
+		this.inqridientPrice = inqridientPrice;
+		this.inqridientMiqdar = inqridientMiqdar;
+	}
+	public InqridientModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 }
