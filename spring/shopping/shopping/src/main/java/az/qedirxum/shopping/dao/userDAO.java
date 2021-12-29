@@ -91,6 +91,9 @@ public class userDAO {
   }
  
         System.out.println(user);
+        c.close();
+        s.close();
+		result.close();
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -113,6 +116,9 @@ public class userDAO {
       user.setNote(result.getString("note")); 
 
 	}
+  c.close();
+  s.close();
+  result.close();
  
         } catch (Exception e) {
             //TODO: handle exception
