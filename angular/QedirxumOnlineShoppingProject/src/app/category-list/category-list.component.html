@@ -9,14 +9,15 @@
         </thead>
         <tbody>
           <tr   *ngFor="let category of categories" >
-       
-           
+            <td>{{category.id}}</td>
+           <td>{{category.category}}</td>
             <td><button mwlConfirmationPopover placement="left" 
               [popoverTitle]="popoverTitle" 
               [popoverMessage]="popoverMessage" 
-              (confirm)="deleteCategoryById(1)"
+              (confirm)="deleteCategoryById(category.id)"
       
                class="btn btn-danger btn border">Sil</button></td>
           </tr>
         </tbody>
       </table>
+<app-category-create></app-category-create>

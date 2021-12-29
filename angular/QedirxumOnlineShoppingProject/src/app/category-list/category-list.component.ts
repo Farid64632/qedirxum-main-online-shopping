@@ -21,18 +21,31 @@ export class CategoryListComponent implements OnInit {
 
   ngOnInit(): void {
 this.loadCategories();
+this.load()
   }
   deleteCategoryById(id:number){
   
-    //this.http.delete(API_URL+'/categories/'+id).subscribe(
-    //  resp=>{
-   //   
-   //  this.loadCategories();
+    this.http.delete(API_URL+'/categories/'+id).subscribe(
+      resp=>{
+      
+     this.loadCategories();
 
-   //   }
-   // );
+      }
+   );
   }
   
+
+  load(){
+    setInterval(() => {
+      if (localStorage.getItem('loadCategories')=='1'){
+  this.loadCategories();
+  localStorage.setItem('loadCategories','0')
+  
+      } 
+        
+      },100);
+  
+    }
 
   loadCategories(){
     this.http.get<[]>(API_URL+'/categories').subscribe(

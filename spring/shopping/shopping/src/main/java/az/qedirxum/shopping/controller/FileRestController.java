@@ -25,7 +25,7 @@ import az.qedirxum.shopping.model.ImageBean;
 
 @RestController
 @RequestMapping(path = "/files")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class FileRestController {
     private final StorageService storageService;
 

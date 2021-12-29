@@ -1,1 +1,20 @@
-<p>category-create works!</p>
+<div style="width: 600px;float: right;">
+    <div class="container" style="width: 80%;margin-left: 10%;">
+        <form class="form-input"  (ngSubmit)="onCreateCategory()"   >
+            <div class="form-group">
+              <label for="name">Ad:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+       [(ngModel)]="category.category"
+              />
+            </div>
+         
+
+                <button type="submit" class="btn btn-primary">Yadda saxla</button>
+              </form></div> 
+        
+            </div>
+       
