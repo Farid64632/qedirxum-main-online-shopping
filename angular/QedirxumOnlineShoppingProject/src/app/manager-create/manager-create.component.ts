@@ -21,6 +21,7 @@ export class ManagerCreateComponent implements OnInit {
 
   onCreateManager(){
     console.log('ss');
+    localStorage.setItem('loadManagers','1')
     this.http.post(API_URL +'/signupmanager',this.user)
  .subscribe(
     error =>{

@@ -20,7 +20,9 @@ import { FoodCreateComponent } from './food-create/food-create.component';
 import { FoodTableComponent } from './food-table/food-table.component';
 import { InqridientTableComponent } from './inqridient-table/inqridient-table.component';
 import { InqridientCreateComponent } from './inqridient-create/inqridient-create.component';
-
+import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoryCreateComponent } from './category-create/category-create.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { InqridientCreateComponent } from './inqridient-create/inqridient-create
     FoodTableComponent,
     InqridientTableComponent,
     InqridientCreateComponent,
+    CategoryListComponent,
+    CategoryCreateComponent,
   
   ],
   imports: [
@@ -44,6 +48,9 @@ import { InqridientCreateComponent } from './inqridient-create/inqridient-create
     AppRoutingModule,
     HttpClientModule
     ,FormsModule, BrowserAnimationsModule,ReactiveFormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType:'primary',cancelButtonType:'danger',confirmText:'Tesdiq',cancelText:'Legv Et'
+          }),
     DemoMaterialModule
   ],
   providers: [{

@@ -1,0 +1,22 @@
+<div >
+    <table class="table table-light "   style="width: 45%;float: left;margin-right: 4%;;">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Kategoriya</th>
+            <th>Emeliyyatlar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr   *ngFor="let category of categories" >
+       
+           
+            <td><button mwlConfirmationPopover placement="left" 
+              [popoverTitle]="popoverTitle" 
+              [popoverMessage]="popoverMessage" 
+              (confirm)="deleteCategoryById(1)"
+      
+               class="btn btn-danger btn border">Sil</button></td>
+          </tr>
+        </tbody>
+      </table>

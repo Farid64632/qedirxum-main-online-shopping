@@ -25,6 +25,7 @@ public class SpringSecurityCustomConfig extends WebSecurityConfigurerAdapter {
         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
         .antMatchers(HttpMethod.POST, "/signup/**").permitAll()
         .antMatchers(HttpMethod.GET, "/files/**").permitAll()
+      
         .anyRequest().authenticated()
         .and().httpBasic();
     }

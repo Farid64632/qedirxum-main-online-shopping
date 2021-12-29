@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    localStorage.removeItem('token');
+    localStorage.removeItem('tokenQedirxum');
   }
   onLogin(){
     let token:string='Basic '+window.btoa(this.user.username +':'+ this.user.password);
@@ -30,7 +30,7 @@ headers:new HttpHeaders(
     }).subscribe(
       resp =>{
       //  alert('ugurlu giris')
-      localStorage.setItem('token',token);
+      localStorage.setItem('tokenQedirxum',token);
       localStorage.setItem('username',this.user.username);
       localStorage.setItem('userLogin','true');
       localStorage.setItem('userRoles', resp.toString());

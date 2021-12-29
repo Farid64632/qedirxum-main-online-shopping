@@ -17,17 +17,27 @@ export class ManagerTableComponent implements OnInit {
   constructor(public dialog:MatDialog,private http:HttpClient) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loadManagers();
-    }, 2000);
+
     this.loadManagers();
- 
+ this.load();
  
   }
   openDialog(){
     this.dialog.open(ManagerCreateComponent);
 
   }
+
+  load(){
+    setInterval(() => {
+      if (localStorage.getItem('loadManagers')=='1'){
+  this.loadManagers();
+  localStorage.setItem('loadManagers','0')
+  
+      } 
+        
+      },100);
+  
+    }
   loadManagers(){
     this.http.get<[]>(API_URL+'/get-managers').subscribe(
       response=>{

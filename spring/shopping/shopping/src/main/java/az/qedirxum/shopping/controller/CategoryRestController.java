@@ -6,34 +6,43 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import az.qedirxum.shopping.dao.categoryDAO;
+
+import az.qedirxum.shopping.dao.CategoryDao;
 import az.qedirxum.shopping.error.ErrorValidation;
-import az.qedirxum.shopping.model.Category;
+import az.qedirxum.shopping.model.Categry;
 
 @RestController
-@RequestMapping(path="/category")
+@RequestMapping(path="/categories")
 public class CategoryRestController {
     
 
     @Autowired
-private categoryDAO categoryDAO;
+private CategoryDao categoryDAO;
 
 
 @GetMapping
-public List<Category>findAll(){
+public List<Categry>findAll(){
 	return categoryDAO.findAll();
+	}
+
+@DeleteMapping(value = "/{id}")
+public void deleteCategoryById(@PathVariable Integer id){
+	categoryDAO.deleteById(id);
 }
 
 
+
 @PostMapping
-	public Category add(@Valid @RequestBody Category category,BindingResult result){
-		Category categorysaved=null;
+	public Categry add(@Valid @RequestBody Categry category,BindingResult result){
+		Categry categorysaved=null;
 		if (result.hasErrors()) {
 			throw new ErrorValidation(result);
 

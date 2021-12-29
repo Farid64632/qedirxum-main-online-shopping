@@ -91,6 +91,9 @@ public class userDAO {
   }
  
         System.out.println(user);
+		c.close();
+	s.close();
+	result.close();
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -114,6 +117,9 @@ public class userDAO {
 
 	}
  
+	c.close();
+	s.close();
+	result.close();
         } catch (Exception e) {
             //TODO: handle exception
         }

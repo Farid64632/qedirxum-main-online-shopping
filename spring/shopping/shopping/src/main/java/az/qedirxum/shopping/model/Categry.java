@@ -9,7 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Category {
+public class Categry {
     
 
     @Id
@@ -20,5 +20,21 @@ public class Category {
 	@Size(max=30,message="maximum 30 simvol yazmaq lazımdır")
 	@NotEmpty(message="Boş qoymaq olmaz!")
 	@Column(columnDefinition="VARCHAR(30)")
-	private String name;
+	private String category;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 }

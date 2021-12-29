@@ -11,7 +11,7 @@ export class HttpInterSectorService implements HttpInterceptor {
 
   
   intercept(request:HttpRequest<any>,next:HttpHandler){
-    let token=localStorage.getItem('token');
+    let token=localStorage.getItem('tokenQedirxum');
     if(token){
       request = request.clone(
         {

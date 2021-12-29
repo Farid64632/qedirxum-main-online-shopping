@@ -12,6 +12,7 @@ import { FoodCreateComponent}  from './food-create/food-create.component';
 import { FoodTableComponent}  from './food-table/food-table.component';
 import { InqridientTableComponent}  from './inqridient-table/inqridient-table.component';
 import {InqridientCreateComponent }  from './inqridient-create/inqridient-create.component';
+import {CategoryListComponent }  from './category-list/category-list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -28,7 +29,7 @@ const routes: Routes = [
   { path: 'food-table', component: FoodTableComponent},
   { path: 'inqridient-table', component: InqridientTableComponent },
   { path: 'inqridient-create', component: InqridientCreateComponent},
-
+  { path: 'category', component: CategoryListComponent},
  ];
 
 @NgModule({
