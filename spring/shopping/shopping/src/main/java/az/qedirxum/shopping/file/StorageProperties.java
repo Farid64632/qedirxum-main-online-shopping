@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("storage")
 
 public class StorageProperties {
-    private String location = "upload-dir-aprel-11";
+    private String location = "upload-dir-qedirxum-shopping";
 
     public String getLocation() {
         return location;

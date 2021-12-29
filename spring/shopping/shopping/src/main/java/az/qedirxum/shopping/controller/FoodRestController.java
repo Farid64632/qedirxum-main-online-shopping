@@ -33,12 +33,11 @@ public class FoodRestController {
 		return foodDAO.findAll();
 	}
 	
-///	@PostMapping
-	//public void addFood(@Valid @RequestBody Food food ,BindingResult result){
-	//	if(result.hasErrors()) {
-	//		throw new ErrorValidation(result);
-	//	}
-	//	foodDAO.save(food);
-//	}
+	@PostMapping
+	public void addFood(@Valid @RequestBody Food food ,BindingResult result){
+	if(result.hasErrors()) {
+			throw new ErrorValidation(result);
+		}
+	foodDAO.save(food);	}
 
 }

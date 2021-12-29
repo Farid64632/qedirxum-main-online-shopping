@@ -1,6 +1,6 @@
 <div style="width: 600px;">
-    <div class="container" style="width: 80%;margin-left: 10%;">
-        <form class="form-input"    >
+    <div class="container" style="width: 80%;margin-left: 10%;"  >
+        <form class="form-input"   (ngSubmit)="onSaveFood()" >
             <div class="form-group">
               <label for="name">Ad:</label>
               <input
@@ -8,8 +8,11 @@
                 class="form-control"
                 id="name"
                 name="name"
-       
+                [(ngModel)]="food.name"
               />
+              <span  class="error-message" *ngFor="let error of errorFood.errorName" > 
+                {{error}}<br>
+                    </span>
             </div>
             <br>
             <div class="form-group">
@@ -19,9 +22,12 @@
                 class="form-control"
                 id="price"
                 name="price"
-             
+                [(ngModel)]="food.price"
        
               />
+              <span  class="error-message" *ngFor="let error of errorFood.errorPrice" > 
+                {{error}}<br>
+                    </span>
             </div>    <br>
             <div class="form-group">
               <label for="note">Qeyd:</label>
@@ -30,18 +36,24 @@
                 class="form-control"
                 id="note"
                 name="note"
-          
+                [(ngModel)]="food.description"
+       
               />
+              <span  class="error-message" *ngFor="let error of errorFood.errorDescription" > 
+                {{error}}<br>
+                    </span>
             </div>
          
             <div class="form-group">
                 <label for="category">Kategoriya:</label>
-               <select   class="form-control" id="category"
+               <select     [(ngModel)]="food.category"
+               class="form-control" id="category"
                name="category">
-        <option >1</option>
-        <option >2</option>
-        <option >3</option>
+               <option *ngFor="let category of categories" >{{category.category}}</option>
                </select>
+               <span  class="error-message" *ngFor="let error of errorFood.errorCategory" > 
+                {{error}}<br>
+                    </span>
             </div>
 
             <div class="form-group">
@@ -51,10 +63,15 @@
                   class="form-control"
                   id="miqdar"
                   name="miqdar"
-               
+                  [(ngModel)]="food.miqdar"
+       
          
                 />
-              </div>    <br>
+              </div> 
+              <span  class="error-message" *ngFor="let error of errorFood.errorMiqdar" > 
+                {{error}}<br>
+                    </span>
+              <br>
               <div class="form-group">
                 <label for="shop-image">Sekil</label>
                 <input
@@ -62,7 +79,7 @@
                   class="form-control"
                   id="shop-image"
                   name="shop-image"
-                  
+                  (change)="onImageSelected($event)"
              
                 />
               </div>
