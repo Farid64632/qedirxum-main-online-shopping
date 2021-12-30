@@ -4,7 +4,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { API_URL } from '../constant';
 import { Category } from '../models/category';
 import { ValidationEror } from '../models/error';
-import { ErrorFood } from '../models/ErrorFood';
+import { ErrorFood } from '../models/errorFood';
+
 import { Food } from '../models/food';
 import { ImageBean } from '../models/imageBean';
 

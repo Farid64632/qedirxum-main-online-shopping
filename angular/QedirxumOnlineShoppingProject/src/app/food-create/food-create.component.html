@@ -1,4 +1,4 @@
-<div style="width: 600px;">
+<div style="width: 600px;max-height:500px;" >
     <div class="container" style="width: 80%;margin-left: 10%;"  >
         <form class="form-input"   (ngSubmit)="onSaveFood()" >
             <div class="form-group">
@@ -49,7 +49,7 @@
                <select     [(ngModel)]="food.category"
                class="form-control" id="category"
                name="category">
-               <option *ngFor="let category of categories" >{{category.category}}</option>
+               <option  *ngFor="let category of categories" value="{{category.category}}" >{{category.category}}</option>
                </select>
                <span  class="error-message" *ngFor="let error of errorFood.errorCategory" > 
                 {{error}}<br>
