@@ -1,1 +1,59 @@
-<p>inqridient-create works!</p>
+<div style="width: 600px;max-height:500px;" >
+    <div class="container" style="width: 80%;margin-left: 10%;"  >
+        <form class="form-input"  (ngSubmit)="onSaveInqridient()" >
+            <div class="form-group">
+              <label for="name">Ad:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                [(ngModel)]="inqiridient.name"
+              />      
+              <span  class="error-message" *ngFor="let error of errorInqridient.errorName" > 
+                {{error}}<br>
+                    </span> 
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="price">Qiymet:</label>
+              <input
+                
+                class="form-control"
+                id="price"
+                name="price"
+                [(ngModel)]="inqiridient.price"
+       
+              />
+              <span  class="error-message" *ngFor="let error of errorInqridient.errorPrice" > 
+                {{error}}<br>
+                    </span> 
+            </div>    <br>
+          
+         
+
+            <div class="form-group">
+                <label for="miqdar">Miqdar:</label>
+                <input
+                  
+                  class="form-control"
+                  id="miqdar"
+                  name="miqdar"
+                  [(ngModel)]="inqiridient.miqdar"
+       
+
+                />
+                <span  class="error-message" *ngFor="let error of errorInqridient.errorMiqdar" > 
+                    {{error}}<br>
+                        </span> 
+              </div> 
+              
+              <br>
+           
+        
+           <br>
+                <button type="submit" class="btn btn-primary">Yadda saxla</button>
+              </form></div> 
+        
+            </div>
+       

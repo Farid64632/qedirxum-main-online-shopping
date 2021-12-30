@@ -1,7 +1,7 @@
 <div class="main_content">
     <div class="info">
         <br>
-        <button mat-button class="btn bg-success text-white"  >Yeni Inqrident yaratmaq</button>
+        <button mat-button  class="btn btn-primary"  (click)="openDialog()" >Yeni Inqrident </button>
         <br>
         <table class="table table-bordered">
             <thead>
@@ -11,14 +11,21 @@
                 <th>Ad</th>
                 <th>Qiymet</th>
                 <th>Miqdar</th>
-
+                <th>Emeliyyatlar</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-               <td></td>
-               <td></td>
-               <td></td>
+              <tr *ngFor="let inqiridient of inqiridents">
+               <td>{{inqiridient.id}}</td>
+               <td>{{inqiridient.name}}</td>
+               <td>{{inqiridient.price}}</td>
+               <td>{{inqiridient.miqdar}}</td>
+               <td><button mwlConfirmationPopover placement="left" 
+                [popoverTitle]="popoverTitle" 
+                [popoverMessage]="popoverMessage" 
+                (confirm)="deleteInqridientById(inqiridient.id)"
+        
+                 class="btn btn-danger btn border">Sil</button></td>
               </tr>
             </tbody>
           </table>    </div>

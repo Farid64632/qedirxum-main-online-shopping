@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,9 +35,9 @@ private InqridientDao inqridientDao;
 public List<Inqridient>findAll(){
 	return inqridientDao.findAll();
 }
-@GetMapping(path="/{id}")
-public Inqridient findById(@PathVariable(name="id")Integer id){
-return inqridientDao.findById(id).get();
+@DeleteMapping(value = "/{id}")
+public void deleteInqridientById(@PathVariable Integer id){
+	inqridientDao.deleteById(id);
 }
 
 

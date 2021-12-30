@@ -21,49 +21,60 @@ public class Inqridient {
 	@Size(max=30,message="maximum 30 simvol yazmaq lazımdır")
 	@NotEmpty(message="Boş qoymaq olmaz!")
 	@Column(columnDefinition="VARCHAR(30)")
-	private String inqridientName;
+	private String name;
 	
 	@NotNull(message="boş qoymaq olmaz")
 	@Min(value=0,message="minimum 0 yazmaq olar")
 	@Max(value=100,message="maximum 100 yazmaq olar")
-	private Double inqridientPrice;
+	private Double price;
+	
 
+	@Size(min=2,message="minimum 2 simvol yazmaq lazımdır")
+	@Size(max=30,message="maximum 30 simvol yazmaq lazımdır")
+	@NotEmpty(message="Boş qoymaq olmaz!")
 	@NotNull(message="boş qoymaq olmaz")
-	private Integer inqridientMiqdar;
+	private String miqdar;
+
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getInqridientName() {
-		return inqridientName;
+
+	public String getName() {
+		return name;
 	}
 
-	public void setInqridientName(String inqridientName) {
-		this.inqridientName = inqridientName;
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Double getInqridientPrice() {
-		return inqridientPrice;
+
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setInqridientPrice(Double inqridientPrice) {
-		this.inqridientPrice = inqridientPrice;
+
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
-	public Integer getInqridientMiqdar() {
-		return inqridientMiqdar;
+
+	public String getMiqdar() {
+		return miqdar;
 	}
 
-	public void setInqridientMiqdar(Integer inqridientMiqdar) {
-		this.inqridientMiqdar = inqridientMiqdar;
+
+	public void setMiqdar(String miqdar) {
+		this.miqdar = miqdar;
 	}
 
-	
 
 	
 }
