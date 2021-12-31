@@ -3,6 +3,7 @@ package az.qedirxum.shopping.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,12 +37,13 @@ public class LoginRestController {
              
           }
          
+          @PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
           @PostMapping(path="/signupmanager")
           public void signupmanager(@RequestBody UserModel user){ 
   userDao.createUser(user,"ROLE_MANAGER");
               
            }
-
+           @PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
          @GetMapping(path="/get-managers")
          public List<UserModel> getManagers(){ 
              return userDao.getManagers();

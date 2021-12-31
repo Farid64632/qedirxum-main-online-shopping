@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,16 +30,18 @@ public class FoodRestController {
 	
 	@Autowired
 	private FoodDao foodDAO;
-	
+
+	@PreAuthorize("hasRole('ROLE_MANAGER')")
 	@GetMapping
 	public List<Food>findAll(){
 		return foodDAO.findAll();
 	}
+	@PreAuthorize("hasRole('ROLE_MANAGER')")
 	@DeleteMapping(value = "/{id}")
 public void deleteFoodById(@PathVariable Integer id){
 	foodDAO.deleteById(id);
 }
-
+@PreAuthorize("hasRole('ROLE_MANAGER')")
 	@PostMapping
 	public void addFood(@Valid @RequestBody Food food ,BindingResult result){
 	if(result.hasErrors()) {

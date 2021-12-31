@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,16 +32,18 @@ public class InqridientRestController {
 private InqridientDao inqridientDao;
 
 
+@PreAuthorize("hasRole('ROLE_MANAGER')")
 @GetMapping
 public List<Inqridient>findAll(){
 	return inqridientDao.findAll();
 }
+@PreAuthorize("hasRole('ROLE_MANAGER')")
 @DeleteMapping(value = "/{id}")
 public void deleteInqridientById(@PathVariable Integer id){
 	inqridientDao.deleteById(id);
 }
 
-
+@PreAuthorize("hasRole('ROLE_MANAGER')")
 @PostMapping
 	public Inqridient add(@Valid @RequestBody Inqridient inqridientModel,BindingResult result){
 		Inqridient inqridientModelSaved=null;

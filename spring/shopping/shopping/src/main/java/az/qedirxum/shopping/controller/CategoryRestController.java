@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,19 +30,20 @@ public class CategoryRestController {
     @Autowired
 private CategoryDao categoryDAO;
 
-
+@PreAuthorize("hasRole('ROLE_MANAGER')")
 @GetMapping
 public List<Categry>findAll(){
 	return categoryDAO.findAll();
 	}
 
+	@PreAuthorize("hasRole('ROLE_MANAGER')")
 @DeleteMapping(value = "/{id}")
 public void deleteCategoryById(@PathVariable Integer id){
 	categoryDAO.deleteById(id);
 }
 
 
-
+@PreAuthorize("hasRole('ROLE_MANAGER')")
 @PostMapping
 	public Categry add(@Valid @RequestBody Categry category,BindingResult result){
 		Categry categorysaved=null;
