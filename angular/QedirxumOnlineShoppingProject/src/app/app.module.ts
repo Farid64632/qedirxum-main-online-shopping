@@ -23,7 +23,8 @@ import { InqridientCreateComponent } from './inqridient-create/inqridient-create
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
-
+// For MDB Angular Free
+import { PopoverModule, WavesModule } from 'angular-bootstrap-md'
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,9 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     ConfirmationPopoverModule.forRoot({
       confirmButtonType:'primary',cancelButtonType:'danger',confirmText:'Tesdiq',cancelText:'Legv Et'
           }),
-    DemoMaterialModule
+    DemoMaterialModule,
+    PopoverModule.forRoot(),
+    WavesModule.forRoot()
   ],
   providers: [{
 
