@@ -24,7 +24,7 @@
     color: #fff;
     user-select: none;
     border-radius: 15px 15px 0 0;
-    background: linear-gradient(-135deg, #166d04, #13bb1b);
+    background: linear-gradient(-135deg, #8f1212, #c53c19);
  
   }
   .wrapper form{
@@ -103,7 +103,7 @@
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
-    background: linear-gradient(-135deg, #166d04, #13bb1b);
+    background: linear-gradient(-135deg, #8f1212, #c53c19);
  
     transition: all 0.3s ease;
   }
