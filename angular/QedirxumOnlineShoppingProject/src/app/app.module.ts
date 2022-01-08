@@ -24,9 +24,8 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 // For MDB Angular Free
-import { PopoverModule, WavesModule ,CarouselModule} from 'angular-bootstrap-md'
-
-
+import { PopoverModule, WavesModule,CarouselModule } from 'angular-bootstrap-md';
+import { FooterComponent } from './footer/footer.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +43,7 @@ import { PopoverModule, WavesModule ,CarouselModule} from 'angular-bootstrap-md'
     InqridientCreateComponent,
     CategoryListComponent,
     CategoryCreateComponent,
+    FooterComponent,
   
   ],
   imports: [
