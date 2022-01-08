@@ -30,20 +30,20 @@ public class CategoryRestController {
     @Autowired
 private CategoryDao categoryDAO;
 
-@PreAuthorize("hasRole('ROLE_MANAGER')")
+
 @GetMapping
 public List<Categry>findAll(){
 	return categoryDAO.findAll();
 	}
 
-	@PreAuthorize("hasRole('ROLE_MANAGER')")
+	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
 @DeleteMapping(value = "/{id}")
 public void deleteCategoryById(@PathVariable Integer id){
 	categoryDAO.deleteById(id);
 }
 
 
-@PreAuthorize("hasRole('ROLE_MANAGER')")
+@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
 @PostMapping
 	public Categry add(@Valid @RequestBody Categry category,BindingResult result){
 		Categry categorysaved=null;

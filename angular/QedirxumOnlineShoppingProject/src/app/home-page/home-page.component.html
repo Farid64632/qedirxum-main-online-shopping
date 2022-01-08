@@ -1,1 +1,35 @@
-<p>home-page works!</p>
+<div style="height:100px ;"></div>
+<div ><mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img class="d-block w-100" src="https://imageproxy.wolt.com/menu/menu-images/5e1ed3f4c42effde9f96e12a/fa22b0f2-53ee-11ec-82a2-1a4ff5077d99_1_mini_pizza_kartof.jpeg" alt="First slide">
+        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+      </div>
+      
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img class="d-block w-100" src="https://imageproxy.wolt.com/menu/menu-images/5e2acb5b191b16001d43e4e6/aa72aa8c-8881-11eb-a68e-4ac7ce1d6c77_papadias_t_kli_menyu.jpeg" alt="First slide">
+        <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+      </div>
+     
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img class="d-block w-100" src="https://imageproxy.wolt.com/menu/menu-images/5e1ed3f4c42effde9f96e12a/21240a16-53ef-11ec-8ac1-4e21803aa80e_1_mini_pizza_rolls_2_nefer.jpeg" alt="First slide">
+           <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+      </div>
+      
+    </mdb-carousel-item>
+  </mdb-carousel></div>
+
+
+
+<mat-toolbar>
+    <div class="btn-group" (click)="onButtonGroupClick($event)" style="margin-left: 10%;">
+       <div  *ngFor="let category of categories"> 
+           <button class="btn btn-secondary " type="button" >{{category.category}}</button>
+       </div>
+       
+      </div>
+</mat-toolbar>

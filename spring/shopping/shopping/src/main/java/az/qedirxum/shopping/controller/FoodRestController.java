@@ -31,7 +31,7 @@ public class FoodRestController {
 	@Autowired
 	private FoodDao foodDAO;
 
-	@PreAuthorize("hasRole('ROLE_MANAGER')")
+
 	@GetMapping
 	public List<Food>findAll(){
 		return foodDAO.findAll();

@@ -12,7 +12,7 @@ export class LogoutComponent implements OnInit {
   constructor(private loginS:LoginService) { }
 
   ngOnInit(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem('tokenQedirxum');
     localStorage.setItem('userLogin','false');
       localStorage.setItem('userRoles', '');
    this.loginS.userLogin.emit(false);
