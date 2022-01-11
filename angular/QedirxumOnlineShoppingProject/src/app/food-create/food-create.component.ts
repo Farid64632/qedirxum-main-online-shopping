@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { API_URL } from '../constant';
 import { Category } from '../models/category';
@@ -8,6 +9,7 @@ import { ErrorFood } from '../models/errorFood';
 
 import { Food } from '../models/food';
 import { ImageBean } from '../models/imageBean';
+import { Inqridient } from '../models/inqridient';
 
 @Component({
   selector: 'app-food-create',
@@ -16,7 +18,9 @@ import { ImageBean } from '../models/imageBean';
 })
 export class FoodCreateComponent implements OnInit {
   categories: Category[] = [];
-
+  inqiridents:Inqridient[]=[];
+  inqridientsForm = new FormControl();
+  selectedInqridients:any;
   error: ValidationEror = new ValidationEror();
   errorFood: ErrorFood = new ErrorFood();
   constructor(
@@ -27,8 +31,16 @@ export class FoodCreateComponent implements OnInit {
   taskImageFile: any = null;
   ngOnInit(): void {
     this.loadCategories();
+    this.loadInqridients();
   }
 
+  loadInqridients() {
+    this.http.get<Inqridient[]>(API_URL + '/inqridients').subscribe(response => {
+      this.inqiridents = response;
+
+      console.log(this.inqiridents);
+    });
+  }
   loadCategories() {
     this.http.get<Category[]>(API_URL + '/categories').subscribe((response) => {
       this.categories = response;
@@ -37,6 +49,8 @@ export class FoodCreateComponent implements OnInit {
     });
   }
   onSaveFood() {
+  
+    this.food.inqridients=this.selectedInqridients.toString();
     let formData: FormData = new FormData();
     formData.append('file', this.taskImageFile);
 

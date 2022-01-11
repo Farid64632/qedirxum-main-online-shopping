@@ -23,17 +23,7 @@ public class Inqridient {
 	@Column(columnDefinition="VARCHAR(30)")
 	private String name;
 	
-	@NotNull(message="boş qoymaq olmaz")
-	@Min(value=0,message="minimum 0 yazmaq olar")
-	@Max(value=100,message="maximum 100 yazmaq olar")
-	private Double price;
-	
 
-	@Size(min=2,message="minimum 2 simvol yazmaq lazımdır")
-	@Size(max=30,message="maximum 30 simvol yazmaq lazımdır")
-	@NotEmpty(message="Boş qoymaq olmaz!")
-	@NotNull(message="boş qoymaq olmaz")
-	private String miqdar;
 
 
 	public Integer getId() {
@@ -55,25 +45,6 @@ public class Inqridient {
 		this.name = name;
 	}
 
-
-	public Double getPrice() {
-		return price;
-	}
-
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-
-	public String getMiqdar() {
-		return miqdar;
-	}
-
-
-	public void setMiqdar(String miqdar) {
-		this.miqdar = miqdar;
-	}
 
 
 	

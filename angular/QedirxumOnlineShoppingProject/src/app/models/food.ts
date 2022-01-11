@@ -6,4 +6,5 @@ export class Food {
     public miqdar: string = '';
       public image: string = '';
       public category: string = '';
+      public inqridients: string = '';
   }

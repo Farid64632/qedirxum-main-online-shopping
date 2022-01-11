@@ -40,11 +40,8 @@
             "
             >MENYU</li>
 
-            <li class="li2">Dönərlər</li>
-            <li class="li2">Kombo-Menyular</li>
-            <li class="li2">Şorba və Salat</li>
-            <li class="li2">Qarnirlər</li>
-            <li class="li2">İçkilər</li>
+            <li class="li2" *ngFor="let category of categories">{{category.category}}</li>
+            
         </ul> 
         <button mat-button  style="color: red; float: left; margin-left: 490px; margin-bottom: 200px;"><mat-icon   >location_on</mat-icon><p style="float: right;">Ən yaxın filialı tap</p></button>
    

@@ -11,18 +11,14 @@
               
                 <th>Id</th>
                 <th>Ad</th>
-                <th>Qiymet</th>
-                <th>Miqdar</th>
-                <th>Emeliyyatlar</th>
+                     <th>Emeliyyatlar</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let inqiridient of inqiridents">
                <td>{{inqiridient.id}}</td>
                <td>{{inqiridient.name}}</td>
-               <td>{{inqiridient.price}}</td>
-               <td>{{inqiridient.miqdar}}</td>
-               <td><button mwlConfirmationPopover placement="left" 
+                <td><button mwlConfirmationPopover placement="left" 
                 [popoverTitle]="popoverTitle" 
                 [popoverMessage]="popoverMessage" 
                 (confirm)="deleteInqridientById(inqiridient.id)"
