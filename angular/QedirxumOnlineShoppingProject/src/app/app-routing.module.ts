@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminPanelComponent },
 
   { path: 'home', component: HomePageComponent },
+  { path: '', component: HomePageComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'manager-t', component: ManagerTableComponent },

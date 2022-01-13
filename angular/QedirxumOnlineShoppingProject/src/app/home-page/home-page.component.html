@@ -35,13 +35,20 @@
 </mat-toolbar>
 
 
-<div class="card" style="width: 18rem ;float: left;height: 26rem;" *ngFor="let food of foods">
+<div class="card" style="width: 20% ;float: left;margin-left: 5%;" *ngFor="let food of foods">
   <img class="card-img-top" [src]="imagePath+food.image " alt="Card image cap" style="height: 200px;">
-  <div class="card-body">
+  <div class="card-body" style="padding: 7%;">
     <h2 class="card-title">{{food.name}}</h2>
-    <h2 class="card-title">{{food.price}}</h2>
+    <h2 class="card-title" style="color: red;">{{food.price}} <span>&#8380;</span></h2>
   
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text" style="color: grey;">{{food.inqridients}}</p>
+    <a href="#" class="btn btn-danger" style="width: 100%;" >Bunu Sec</a>
   </div>
 </div>
+
+
+
+
+      
+
+

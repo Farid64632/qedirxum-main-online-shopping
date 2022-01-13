@@ -26,6 +26,7 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 // For MDB Angular Free
 import { PopoverModule, WavesModule,CarouselModule } from 'angular-bootstrap-md';
 import { FooterComponent } from './footer/footer.component'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,8 @@ import { FooterComponent } from './footer/footer.component'
     DemoMaterialModule,
     PopoverModule.forRoot(),
     WavesModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [{
 
