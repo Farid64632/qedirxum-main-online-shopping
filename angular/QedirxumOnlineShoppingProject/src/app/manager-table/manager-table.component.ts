@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { API_URL } from '../constant';
 import { ManagerCreateComponent } from '../manager-create/manager-create.component';
 import { User } from '../models/user';
+import { AllLoadService } from '../service/all-load.service';
 
 @Component({
   selector: 'app-manager-table',
@@ -13,11 +14,17 @@ import { User } from '../models/user';
 
 export class ManagerTableComponent implements OnInit {
   users: User[] = [];
- 
-  constructor(public dialog:MatDialog,private http:HttpClient) { }
+bool:boolean=false; 
+  constructor(public dialog:MatDialog,private http:HttpClient,private serviceLoad:AllLoadService) { }
 
   ngOnInit(): void {
-
+    this.serviceLoad.managerLoad.subscribe(
+      resp=>{
+      
+        this.bool=resp;
+      }
+      
+      );
     this.loadManagers();
  this.load();
  
@@ -29,10 +36,9 @@ export class ManagerTableComponent implements OnInit {
 
   load(){
     setInterval(() => {
-      if (localStorage.getItem('loadManagers')=='1'){
-  this.loadManagers();
-  localStorage.setItem('loadManagers','0')
-  
+      if (this.bool==true){
+this.loadManagers();
+this.serviceLoad.managerLoad.emit(true);  
       } 
         
       },100);

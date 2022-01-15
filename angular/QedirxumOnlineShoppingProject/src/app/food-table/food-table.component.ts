@@ -6,6 +6,7 @@ import { API_URL } from '../constant';
 import { FoodCreateComponent } from '../food-create/food-create.component';
 import { Category } from '../models/category';
 import { Food } from '../models/food';
+import { AllLoadService } from '../service/all-load.service';
 
 @Component({
   selector: 'app-food-table',
@@ -14,18 +15,27 @@ import { Food } from '../models/food';
 })
 export class FoodTableComponent implements OnInit {
   foods: Food[] = [];
+  bool:boolean=false;
   imagePath: string = '';
   popoverTitle:string='Təsdiq';
   popoverMessage:string='Yemek Silme prosesini təsdiqləməyə əminsiniz?';
   constructor(
     public dialog: MatDialog,
     private http: HttpClient,
-    private router: Router
+    private router: Router,private serviceLoad:AllLoadService
   ) {}
   openDialog() {
     this.dialog.open(FoodCreateComponent);
   }
   ngOnInit(): void {
+    this.serviceLoad.foodLoad.subscribe(
+      resp=>{
+      
+        this.bool=resp;
+      }
+      
+      );
+
     this.imagePath = API_URL + '/files/files/';
     this.loadFoods();
     this.load();
@@ -40,10 +50,9 @@ export class FoodTableComponent implements OnInit {
   
   load(){
     setInterval(() => {
-      if (localStorage.getItem('loadFoods')=='1'){
+      if (this.bool==true){
   this.loadFoods();
-  localStorage.setItem('loadFoods','0')
-  
+  this.serviceLoad.foodLoad.emit(false);
       } 
         
       },100);

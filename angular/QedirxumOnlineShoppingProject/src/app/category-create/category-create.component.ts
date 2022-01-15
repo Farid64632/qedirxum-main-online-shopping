@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { API_URL } from '../constant';
 import { Category } from '../models/category';
+import { AllLoadService } from '../service/all-load.service';
 
 @Component({
   selector: 'app-category-create',
@@ -11,12 +12,13 @@ import { Category } from '../models/category';
 })
 export class CategoryCreateComponent implements OnInit {
   category:Category=new Category();
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private http:HttpClient,private router:Router,private serviceLoad:AllLoadService) { }
 
   ngOnInit(): void {
   }
   onCreateCategory(){
-       localStorage.setItem('loadCategories','1')
+this.serviceLoad.categoryLoad.emit(true);
+
     this.http.post(API_URL +'/categories',this.category)
  .subscribe(
     error =>{

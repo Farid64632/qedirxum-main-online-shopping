@@ -10,6 +10,7 @@ import { ErrorFood } from '../models/errorFood';
 import { Food } from '../models/food';
 import { ImageBean } from '../models/imageBean';
 import { Inqridient } from '../models/inqridient';
+import { AllLoadService } from '../service/all-load.service';
 
 @Component({
   selector: 'app-food-create',
@@ -25,13 +26,15 @@ export class FoodCreateComponent implements OnInit {
   errorFood: ErrorFood = new ErrorFood();
   constructor(
     private http: HttpClient,
-    public dialogRef: MatDialogRef<FoodCreateComponent>
+    public dialogRef: MatDialogRef<FoodCreateComponent>,private serviceLoad:AllLoadService
   ) { }
   food: Food = new Food();
   taskImageFile: any = null;
   ngOnInit(): void {
     this.loadCategories();
     this.loadInqridients();
+
+
   }
 
   loadInqridients() {
@@ -61,7 +64,7 @@ export class FoodCreateComponent implements OnInit {
 
         this.http.post<Food>(API_URL + '/food', this.food).subscribe(
           (resp) => {
-            localStorage.setItem('loadFoods', '1');
+         this.serviceLoad.foodLoad.emit(true);
             this.dialogRef.close();
           },
           (error) => {

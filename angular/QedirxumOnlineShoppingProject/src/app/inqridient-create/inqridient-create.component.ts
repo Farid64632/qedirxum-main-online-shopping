@@ -5,6 +5,7 @@ import { API_URL } from '../constant';
 import { ValidationEror } from '../models/error';
 import { ErrorInqridient } from '../models/errorInqridient';
 import { Inqridient } from '../models/inqridient';
+import { AllLoadService } from '../service/all-load.service';
 
 @Component({
   selector: 'app-inqridient-create',
@@ -17,6 +18,7 @@ export class InqridientCreateComponent implements OnInit {
   error: ValidationEror = new ValidationEror();
   errorInqridient: ErrorInqridient = new ErrorInqridient();
   constructor(private http:HttpClient,public dialogRef: MatDialogRef<InqridientCreateComponent>
+    ,private serviceLoad:AllLoadService
     ) { }
 
   ngOnInit(): void {
@@ -30,7 +32,8 @@ export class InqridientCreateComponent implements OnInit {
    
 .subscribe(
   (resp) => {
-    localStorage.setItem('loadInqridients','1');
+this.serviceLoad.inqridientLoad.emit(true);
+
         this.dialogRef.close();
   },
    (error) =>{

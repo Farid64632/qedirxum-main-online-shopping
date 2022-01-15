@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { API_URL } from '../constant';
 import { User } from '../models/user';
+import { AllLoadService } from '../service/all-load.service';
 import { LoginService } from '../service/login.service';
 
 @Component({
@@ -14,14 +15,15 @@ import { LoginService } from '../service/login.service';
 export class ManagerCreateComponent implements OnInit {
 
   user:User=new User();
-  constructor(private http:HttpClient,private router:Router,private loginS:LoginService,public dialogRef: MatDialogRef<ManagerCreateComponent>){ }
+  constructor(private http:HttpClient,private router:Router,private loginS:LoginService,public dialogRef: MatDialogRef<ManagerCreateComponent>
+    ,private serviceLoad:AllLoadService){ }
 
   ngOnInit(): void {
   }
 
   onCreateManager(){
     console.log('ss');
-    localStorage.setItem('loadManagers','1')
+  this.serviceLoad.managerLoad.emit(true);
     this.http.post(API_URL +'/signupmanager',this.user)
  .subscribe(
     error =>{

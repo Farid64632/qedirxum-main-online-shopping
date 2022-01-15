@@ -36,14 +36,14 @@ public List<Categry>findAll(){
 	return categoryDAO.findAll();
 	}
 
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_MANAGER')")
 @DeleteMapping(value = "/{id}")
 public void deleteCategoryById(@PathVariable Integer id){
 	categoryDAO.deleteById(id);
 }
 
 
-@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+@PreAuthorize("hasRole('ROLE_MANAGER')")
 @PostMapping
 	public Categry add(@Valid @RequestBody Categry category,BindingResult result){
 		Categry categorysaved=null;

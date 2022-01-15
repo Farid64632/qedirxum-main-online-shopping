@@ -6,6 +6,7 @@ import { API_URL } from '../constant';
 import { ManagerCreateComponent } from '../manager-create/manager-create.component';
 import { Category } from '../models/category';
 import { User } from '../models/user';
+import { AllLoadService } from '../service/all-load.service';
 
 
 @Component({
@@ -15,11 +16,19 @@ import { User } from '../models/user';
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[] = [];
+  bool:boolean=false;
   popoverTitle:string='Təsdiq';
   popoverMessage:string='Kategoriya Silme prosesini təsdiqləməyə əminsiniz?';
-  constructor(    private http:HttpClient,private router:Router) { }
+  constructor(    private http:HttpClient,private router:Router,private serviceLoad:AllLoadService) { }
 
   ngOnInit(): void {
+    this.serviceLoad.categoryLoad.subscribe(
+      resp=>{
+      
+        this.bool=resp;
+      }
+      
+      );
 this.loadCategories();
 this.load()
   }
@@ -37,9 +46,9 @@ this.load()
 
   load(){
     setInterval(() => {
-      if (localStorage.getItem('loadCategories')=='1'){
+      if (this.bool==true){
   this.loadCategories();
-  localStorage.setItem('loadCategories','0')
+ this.serviceLoad.categoryLoad.emit(false);
   
       } 
         

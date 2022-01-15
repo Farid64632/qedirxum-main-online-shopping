@@ -27,6 +27,7 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { PopoverModule, WavesModule,CarouselModule } from 'angular-bootstrap-md';
 import { FooterComponent } from './footer/footer.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalInfoMenuComponent } from './modal-info-menu/modal-info-menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CategoryListComponent,
     CategoryCreateComponent,
     FooterComponent,
+    ModalInfoMenuComponent,
   
   ],
   imports: [

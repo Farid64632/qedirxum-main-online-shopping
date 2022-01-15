@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { API_URL } from '../constant';
 import { InqridientCreateComponent } from '../inqridient-create/inqridient-create.component';
 import { Inqridient } from '../models/inqridient';
+import { AllLoadService } from '../service/all-load.service';
 
 @Component({
   selector: 'app-inqridient-table',
@@ -11,17 +12,24 @@ import { Inqridient } from '../models/inqridient';
   styleUrls: ['./inqridient-table.component.css']
 })
 export class InqridientTableComponent implements OnInit {
-
+bool:boolean=false;
   inqiridents:Inqridient[]=[];
   popoverTitle:string='Təsdiq';
   popoverMessage:string='Inqridient Silme prosesini təsdiqləməyə əminsiniz?';
-  constructor(private http:HttpClient,  public dialog: MatDialog) { }
+  constructor(private http:HttpClient,  public dialog: MatDialog,private serviceLoad:AllLoadService) { }
 
 
   openDialog() {
     this.dialog.open(InqridientCreateComponent);
   }
   ngOnInit(): void {
+    this.serviceLoad.inqridientLoad.subscribe(
+      resp=>{
+      
+        this.bool=resp;
+      }
+      
+      );
     this.loadInqridients();
     this.load();
   }
@@ -36,9 +44,9 @@ export class InqridientTableComponent implements OnInit {
   }
   load(){
     setInterval(() => {
-      if (localStorage.getItem('loadInqridients')=='1'){
+      if (this.bool==true){
   this.loadInqridients();
-  localStorage.setItem('loadInqridients','0')
+this.serviceLoad.inqridientLoad.emit(false);
   
       } 
         
