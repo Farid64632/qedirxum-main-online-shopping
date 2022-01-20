@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { MatDialogRef } from '@angular/material/dialog';
 import { API_URL } from '../constant';
 import { Category } from '../models/category';
@@ -11,6 +12,8 @@ import { Food } from '../models/food';
 import { ImageBean } from '../models/imageBean';
 import { Inqridient } from '../models/inqridient';
 import { AllLoadService } from '../service/all-load.service';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+
 
 @Component({
   selector: 'app-food-create',
@@ -18,6 +21,7 @@ import { AllLoadService } from '../service/all-load.service';
   styleUrls: ['./food-create.component.css'],
 })
 export class FoodCreateComponent implements OnInit {
+  selects: any[] = [];
   categories: Category[] = [];
   inqiridents:Inqridient[]=[];
   inqridientsForm = new FormControl();
@@ -52,8 +56,10 @@ export class FoodCreateComponent implements OnInit {
     });
   }
   onSaveFood() {
-  
+
     this.food.inqridients=this.selectedInqridients.toString();
+    this.food.selects=this.selects.toString();
+  
     let formData: FormData = new FormData();
     formData.append('file', this.taskImageFile);
 
@@ -112,5 +118,27 @@ export class FoodCreateComponent implements OnInit {
   onImageSelected(event: any) {
     this.taskImageFile = event.target.files[0];
     console.log('girdi');
+  }
+
+
+  addOnBlur = true;
+
+  readonly separatorKeysCodes = [ENTER, COMMA] as const;
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+  
+    if (value) {
+      this.selects.push( value);
+    }
+    event.chipInput!.clear();
+  }
+
+  remove(select: any): void {
+    const index = this.selects.indexOf(select);
+
+    if (index >= 0) {
+      this.selects.splice(index, 1);
+    }
   }
 }

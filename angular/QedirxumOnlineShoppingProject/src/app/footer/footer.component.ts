@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { API_URL } from '../constant';
 import { Category } from '../models/category';
 
+
+
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -21,7 +24,6 @@ export class FooterComponent implements OnInit {
       response=>{
         this.categories=response;
        
-       console.log(this.categories);
        
         ;
      }

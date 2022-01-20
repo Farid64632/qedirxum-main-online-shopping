@@ -13,6 +13,7 @@
                 <th>Miqdar</th>
                 <th>Kateqoriya</th>
                 <th>Inqridients</th>
+                <th>Secimler</th>
                 <th>Sekil</th>
                 <th>Emeliyyatlar</th>
               </tr>
@@ -26,6 +27,7 @@
                 <td>{{ food.miqdar }}</td>
                 <td>{{ food.category }}</td>
                 <td>{{ food.inqridients }}</td>
+                <td>{{ food.selects }}</td>
                 <td><img [src]="imagePath+food.image " style="width: 75px;" > </td>
                 <td><button mwlConfirmationPopover placement="left" 
                   [popoverTitle]="popoverTitle" 

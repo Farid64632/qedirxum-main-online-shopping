@@ -9,7 +9,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 @Configuration
 @EnableGlobalMethodSecurity(
@@ -30,6 +30,7 @@ public class SpringSecurityCustomConfig extends WebSecurityConfigurerAdapter {
         .antMatchers(HttpMethod.GET, "/files/**").permitAll()
         .antMatchers(HttpMethod.GET, "/categories/**").permitAll()
         .antMatchers(HttpMethod.GET, "/food/**").permitAll()
+        .antMatchers(HttpMethod.GET, "/food/get/**").permitAll()
           .anyRequest().authenticated()
         .and().httpBasic();
     }

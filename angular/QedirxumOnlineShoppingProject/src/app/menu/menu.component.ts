@@ -52,13 +52,12 @@ this.loginSerice.userRoles.subscribe(
   }
 
   @HostListener('window:scroll',['$event'])   onscroll(){
-    console.log("girdi")
+  
     if (window.scrollY>100) {
       this.visiblescroll=false;
-      console.log("false")
-    }else{
+       }else{
       this.visiblescroll=true;
-      console.log("true")
+    
     }
   }
 }

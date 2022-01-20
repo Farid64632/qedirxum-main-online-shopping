@@ -1,5 +1,6 @@
 package az.qedirxum.shopping.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,7 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany; 
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -57,7 +59,16 @@ public class Food {
 
 	private String inqridients;
 	
+
+	private String selects;
 	
+
+	public String getSelects() {
+		return selects;
+	}
+	public void setSelects(String selects) {
+		this.selects = selects;
+	}
 	public Integer getId() {
 		return id;
 	}

@@ -1,3 +1,5 @@
+
+
 export class Food {
     public id: number = 0;
     public price: number = 0;
@@ -7,4 +9,5 @@ export class Food {
       public image: string = '';
       public category: string = '';
       public inqridients: string = '';
+      public selects:string  = '';
   }

@@ -42,7 +42,7 @@
     <h2 class="card-title" style="color: red;">{{food.price}} <span>&#8380;</span></h2>
   
     <p class="card-text" style="color: grey;">{{food.inqridients}}</p>
-    <a href="#" class="btn btn-danger" style="width: 100%;" >Bunu Sec</a>
+    <button  class="btn btn-danger" style="width: 100%;" (click)="openDialog(food.id)" >Bunu Sec</button>
   </div>
 </div>
 

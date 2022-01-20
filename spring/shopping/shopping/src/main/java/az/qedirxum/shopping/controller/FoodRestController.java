@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import az.qedirxum.shopping.dao.FoodDao;
 import az.qedirxum.shopping.error.ErrorValidation;
 import az.qedirxum.shopping.model.Food;
-import az.qedirxum.shopping.model.Inqridient;
+
 
 @RestController
 @RequestMapping(path="/food")
@@ -32,12 +32,18 @@ public class FoodRestController {
 	private FoodDao foodDAO;
 
 
+
+
+
+
+
+
 	@GetMapping
 	public List<Food>findAll(){
 		return foodDAO.findAll();
 	}
 	@PreAuthorize("hasRole('ROLE_MANAGER')")
-	@DeleteMapping(value = "/{id}")
+	@DeleteMapping(value = "/delete/{id}")
 public void deleteFoodById(@PathVariable Integer id){
 	foodDAO.deleteById(id);
 }
@@ -49,4 +55,12 @@ public void deleteFoodById(@PathVariable Integer id){
 		}
 	foodDAO.save(food);	}
 
+
+	
+	@GetMapping(value = "/get/{id}")
+public Food getFoodById(@PathVariable Integer id){
+
+		return foodDAO.findById(id).get();
+
+}
 }

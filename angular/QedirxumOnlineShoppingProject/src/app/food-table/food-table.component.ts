@@ -60,7 +60,7 @@ export class FoodTableComponent implements OnInit {
     }
 
     deleteFoodById(id:number){
-      this.http.delete(API_URL+'/food/'+id).subscribe(
+      this.http.delete(API_URL+'/food/delete/'+id).subscribe(
         resp=>{
         
        this.loadFoods();
