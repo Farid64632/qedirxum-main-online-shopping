@@ -32,7 +32,7 @@ export class InqridientCreateComponent implements OnInit {
    
 .subscribe(
   (resp) => {
-this.serviceLoad.inqridientLoad.emit(true);
+this.serviceLoad.inqridientLoad=1;
 
         this.dialogRef.close();
   },

@@ -23,7 +23,7 @@ export class ManagerCreateComponent implements OnInit {
 
   onCreateManager(){
     console.log('ss');
-  this.serviceLoad.managerLoad.emit(true);
+  this.serviceLoad.managerLoad=1;
     this.http.post(API_URL +'/signupmanager',this.user)
  .subscribe(
     error =>{
