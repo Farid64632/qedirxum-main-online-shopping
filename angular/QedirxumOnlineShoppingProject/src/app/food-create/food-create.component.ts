@@ -70,7 +70,7 @@ export class FoodCreateComponent implements OnInit {
 
         this.http.post<Food>(API_URL + '/food', this.food).subscribe(
           (resp) => {
-         this.serviceLoad.foodLoad.emit(true);
+         this.serviceLoad.foodLoad=1;
             this.dialogRef.close();
           },
           (error) => {

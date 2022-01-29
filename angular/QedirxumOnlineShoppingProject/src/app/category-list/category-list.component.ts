@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -22,13 +23,8 @@ export class CategoryListComponent implements OnInit {
   constructor(    private http:HttpClient,private router:Router,private serviceLoad:AllLoadService) { }
 
   ngOnInit(): void {
-    this.serviceLoad.categoryLoad.subscribe(
-      resp=>{
-      
-        this.bool=resp;
-      }
-      
-      );
+    console.log(this.serviceLoad.categoryLoad)
+  
 this.loadCategories();
 this.load()
   }
@@ -45,14 +41,20 @@ this.load()
   
 
   load(){
+   
     setInterval(() => {
-      if (this.bool==true){
-  this.loadCategories();
- this.serviceLoad.categoryLoad.emit(false);
-  
-      } 
+      if (this.serviceLoad.categoryLoad==1) {
+
+        this.bool=true;
+      
+       }
+       if (this.bool==true){
+        this.loadCategories();
+       this.serviceLoad.categoryLoad=0;
         
-      },100);
+            } 
+        
+      },1);
   
     }
 
@@ -61,7 +63,7 @@ this.load()
       response=>{
         this.categories=response;
        
-       console.log(this.categories);
+       
        
         ;
      }

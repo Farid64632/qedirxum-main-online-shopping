@@ -23,13 +23,9 @@ bool:boolean=false;
     this.dialog.open(InqridientCreateComponent);
   }
   ngOnInit(): void {
-    this.serviceLoad.inqridientLoad.subscribe(
-      resp=>{
+  
       
-        this.bool=resp;
-      }
-      
-      );
+    
     this.loadInqridients();
     this.load();
   }
@@ -44,9 +40,12 @@ bool:boolean=false;
   }
   load(){
     setInterval(() => {
+      if (this.serviceLoad.inqridientLoad==1) {
+        this.bool=true;
+       }
       if (this.bool==true){
   this.loadInqridients();
-this.serviceLoad.inqridientLoad.emit(false);
+this.serviceLoad.inqridientLoad=0;
   
       } 
         

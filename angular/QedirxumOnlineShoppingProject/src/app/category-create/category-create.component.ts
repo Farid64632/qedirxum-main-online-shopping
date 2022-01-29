@@ -17,7 +17,7 @@ export class CategoryCreateComponent implements OnInit {
   ngOnInit(): void {
   }
   onCreateCategory(){
-this.serviceLoad.categoryLoad.emit(true);
+this.serviceLoad.categoryLoad=1;
 
     this.http.post(API_URL +'/categories',this.category)
  .subscribe(

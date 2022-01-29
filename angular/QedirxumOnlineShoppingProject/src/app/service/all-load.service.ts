@@ -5,10 +5,10 @@ import { EventEmitter, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AllLoadService {
-  foodLoad:EventEmitter<boolean>=new EventEmitter();
-  managerLoad:EventEmitter<boolean>=new EventEmitter();
-  inqridientLoad:EventEmitter<boolean>=new EventEmitter();
-  categoryLoad:EventEmitter<boolean>=new EventEmitter();
+  foodLoad:number=0;
+  managerLoad:number=0;
+  inqridientLoad:number=0;
+  categoryLoad:number=0;
    
   constructor() { }
 }

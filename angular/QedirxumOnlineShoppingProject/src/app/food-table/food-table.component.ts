@@ -28,13 +28,7 @@ export class FoodTableComponent implements OnInit {
     this.dialog.open(FoodCreateComponent);
   }
   ngOnInit(): void {
-    this.serviceLoad.foodLoad.subscribe(
-      resp=>{
-      
-        this.bool=resp;
-      }
-      
-      );
+
 
     this.imagePath = API_URL + '/files/files/';
     this.loadFoods();
@@ -50,9 +44,14 @@ export class FoodTableComponent implements OnInit {
   
   load(){
     setInterval(() => {
+      if (this.serviceLoad.foodLoad==1) {
+        this.bool=true;
+       }
+           
+         
       if (this.bool==true){
   this.loadFoods();
-  this.serviceLoad.foodLoad.emit(false);
+  this.serviceLoad.foodLoad=0;
       } 
         
       },100);

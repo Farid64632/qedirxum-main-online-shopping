@@ -18,13 +18,8 @@ bool:boolean=false;
   constructor(public dialog:MatDialog,private http:HttpClient,private serviceLoad:AllLoadService) { }
 
   ngOnInit(): void {
-    this.serviceLoad.managerLoad.subscribe(
-      resp=>{
-      
-        this.bool=resp;
-      }
-      
-      );
+    
+    
     this.loadManagers();
  this.load();
  
@@ -36,9 +31,14 @@ bool:boolean=false;
 
   load(){
     setInterval(() => {
+      
+      if (this.serviceLoad.managerLoad==1) {
+        this.bool=true;
+       
+       }
       if (this.bool==true){
 this.loadManagers();
-this.serviceLoad.managerLoad.emit(true);  
+this.serviceLoad.managerLoad=0;  
       } 
         
       },100);
