@@ -64,6 +64,9 @@ html{  overflow: scroll;}
         font-size: 29px;
     }
     
+    
+
+
     .food-card .food-card_content {
         padding: 15px;
     }
@@ -131,8 +134,8 @@ html{  overflow: scroll;}
     
     .food-card .food-card_content .food-card_bottom-section .food-card_price {
         font-size: 28px;
-        font-weight: 500;
-        color: #F47A00;
+        font-weight: 700;
+        color: black;
     }
     
     .food-card .food-card_content .food-card_bottom-section .food-card_order-count {

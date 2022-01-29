@@ -4,24 +4,54 @@
         
                 <div class="food-card" style="max-height: 500px;">
                     <div class="food-card_img">
-                        <img [src]="imagePath+food.image "  >
+                        <img [src]="imagePath+food.image" >
                         <a button><i class="far fa-heart"></i></a>
                     </div>
                     <div class="food-card_content">
                         <div class="food-card_title-section">
-                            <a button class="food-card_title">{{food.name}}</a>
-                            <a button class="food-card_author">{{food.category}}</a>
+                            <a button class="food-card_title" style="color: black;">{{food.name}}</a>
+                            <div class="food-card_price" style="color: #ed2a24; font-size: 20px; font-weight: 700;">
+                                <span>{{food.price}}₼</span>
+                            </div>
+                            <!-- <a button class="food-card_author" style="margin-bottom: 40px;">{{food.category}}</a> -->
                         </div>
 
                         <div>
-                            <h3>Inqridientler</h3>{{food.inqridients}}
+                            <h3 style="font-family: sans-serif;
+                            font-size: 14px;
+                            font-weight: 600;
+                            line-height: 24px;
+                            margin-bottom: -5px;
+                            margin-top: -39px;
+                            color: #000;">İnqrediyentler</h3>
+                            <span style="opacity: 0.6px; color: gray; font-family: sans-serif;">{{food.inqridients}}</span>
                         </div>
                         
                         <div class="food-card_bottom-section">
                             <div class="space-between">
                                 <div>
-                                    <span class="fa fa-fire"></span>{{food.miqdar}}
+                                    <!-- <span class="fa fa-fire">Miqdar:</span>{{food.miqdar}} -->
+                                    <span style="font-family: sans-serif; font-weight: 700; margin-top: 5px;">Miqdar:</span><span class="fa fa-fire">{{food.miqdar}}</span>
+                                    <div class="buttons1">
+                                    <p style="margin-top: 5px;">Sifariş</p>
+                                    <button class="button1" style="width: 130px; height: 50px; border: 1px solid #ed2a24; color: white; font-weight: 600; background-color: #ed2a24; border-radius: 1px; float: left;">Toyuq əti</button>
+                                    <button class="button2" style="width: 130px; height: 50px; border: 1px solid #ed2a24; color: black; font-weight: 600; background-color: white; border-radius: 1px; float: left;">Mal əti</button>
+                                    <div class="food-card_order-count" style="float: left; margin-left: 10px;">  
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus"></i></button>
+                                            </div>
+                                            <input type="text" class="form-control input-manulator" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="0">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>   
                                 </div>
+                                  
+                                </div>
+                                 
+                                
                                 <div class="pull-right">
                                     <span class="badge badge-success">Veg</span>
                                 </div>
@@ -29,21 +59,12 @@
                             <hr>
                             <div class="space-between">
                                 <div class="food-card_price">
-                                    <span>{{food.price}}$</span>
+                                    <span>{{food.price}}₼</span>
                                 </div>
+                                <button class="button2" style="width: 160px; border-radius: 5px; height: 40px; border: 1px solid #ed2a24; color: white; font-weight: 600; background-color:  #ed2a24; border-radius: 1px; float: left;">Sebete at</button>
+                               
 
-
-                                <div class="food-card_order-count">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus"></i></button>
-                                        </div>
-                                        <input type="text" class="form-control input-manulator" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="0">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i class="fa fa-plus"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
